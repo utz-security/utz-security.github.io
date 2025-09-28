@@ -10,28 +10,21 @@
 <body>
   <header>
     <div class="header-container">
+      <!-- Logo centrado -->
       <div class="logo">
-        <!-- SVG o texto del logo -->
-        <svg width="60" height="60" viewBox="0 0 512 512">
-          <circle cx="256" cy="256" r="256" fill="url(#gradient)" />
-          <defs>
-            <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#00ff66"/>
-              <stop offset="100%" stop-color="#aa00ff"/>
-            </linearGradient>
-          </defs>
-        </svg>
+        <h1>{{ site.title }}</h1>
       </div>
+
+      <!-- Menú hamburguesa a la izquierda -->
       <nav class="hamburger-menu">
         <i class="fas fa-bars"></i>
+        <ul class="nav-links">
+          <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+          <li><a href="{{ '/about/' | relative_url }}">Sobre mí</a></li>
+          <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
+        </ul>
       </nav>
-      <ul class="nav-links">
-        {% for page in site.pages %}
-          {% if page.title %}
-            <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
-          {% endif %}
-        {% endfor %}
-      </ul>
     </div>
   </header>
 
