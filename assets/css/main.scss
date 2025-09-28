@@ -33,7 +33,9 @@ h1, h2, h3 {
   text-shadow: 0 0 8px rgba(57,255,155,0.08);
   letter-spacing: 0.2px;
 }
-h1 { font-size: 2rem; }
+h1.glow {
+  text-shadow: 0 0 6px #33ff66, 0 0 12px #33ff66, 0 0 24px #00ffcc;
+}
 
 /* HEADER oscuro por defecto */
 header {
@@ -42,6 +44,7 @@ header {
   padding: 40px 20px;
   text-align: center;
   border-bottom: 1px solid rgba(57,255,155,0.08);
+  box-shadow: 0 0 30px rgba(57,255,155,0.15);
 }
 
 /* HEADER por página con gradientes */
@@ -58,16 +61,22 @@ body.contact header {
   background: linear-gradient(135deg, #001217, #005566);
 }
 
-/* Nav style */
+/* Nav style con iconos */
 nav a {
   color: #9effa6;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 4px;
+  display: inline-block;
+  margin: 0 6px;
+}
+nav a i {
+  margin-right: 4px;
 }
 nav a:hover {
   color: #ffffff;
   background: linear-gradient(90deg, rgba(57,255,155,0.07), rgba(0,230,255,0.03));
   box-shadow: 0 0 14px rgba(57,255,155,0.08);
+  transform: translateY(-2px);
 }
 
 /* Terminal-like accent bar for code */
