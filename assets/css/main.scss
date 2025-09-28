@@ -1,64 +1,74 @@
 ---
 ---
+
 @import "{{ site.theme }}";
 
-/* Full Hacker theme - UTZ Security */
+/* Importamos fuente monospace */
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+
+/* Full Hacker Theme */
 body {
   background: radial-gradient(ellipse at top, #001217 0%, #000810 60%), #000;
   color: #98ff8a;
-  font-family: "Fira Mono", "Source Code Pro", Menlo, Monaco, monospace;
+  font-family: 'Fira Mono', monospace;
   line-height: 1.65;
-  padding-top: 28px;
+  margin: 0;
 }
 
+/* Header con imagen hacker */
+header {
+  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1600&q=80') center/cover no-repeat;
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 2px solid #33ff66;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.4rem;
+  color: #33ff66;
+  text-shadow: 0 0 15px rgba(57,255,155,0.6);
+}
+header nav {
+  margin-top: 20px;
+}
+header nav a {
+  color: #9effa6;
+  margin: 0 12px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all .2s ease;
+}
+header nav a:hover {
+  color: #fff;
+  background: rgba(57,255,155,0.1);
+  box-shadow: 0 0 10px rgba(57,255,155,0.3);
+}
+
+/* Main content */
 #main {
   max-width: 860px;
-  margin: 12px auto;
+  margin: 40px auto;
   padding: 28px;
   background: rgba(0,6,8,0.45);
-  border: 1px solid rgba(57,255,155,0.06);
+  border: 1px solid rgba(57,255,155,0.1);
   box-shadow: 0 8px 40px rgba(0,0,0,0.7);
   border-radius: 8px;
 }
 
+/* Headings */
 h1, h2, h3 {
   color: #d6ffd1;
   text-shadow: 0 0 8px rgba(57,255,155,0.08);
   letter-spacing: 0.2px;
 }
-
 h1 { font-size: 2rem; }
 
-nav a {
-  color: #9effa6;
-  padding: 6px 10px;
-  border-radius: 4px;
-}
-nav a:hover {
-  color: #ffffff;
-  background: linear-gradient(90deg, rgba(57,255,155,0.07), rgba(0,230,255,0.03));
-  box-shadow: 0 0 14px rgba(57,255,155,0.08);
-}
-
-pre {
-  background: #001215;
-  border-left: 4px solid #33ff66;
-  color: #ccffd6;
-  padding: 14px;
-  border-radius: 6px;
-  overflow: auto;
-}
-
-code {
-  background: rgba(57,255,155,0.03);
-  padding: 3px 6px;
-  border-radius: 4px;
-  color: #bdf8b4;
-}
-
+/* Links: neon */
 a { color: #33ff66; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
+/* Post list */
 .post-list li {
   border: 1px solid rgba(57,255,155,0.04);
   padding: 12px;
@@ -71,17 +81,38 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
+/* Code blocks */
+pre {
+  background: #001215;
+  border-left: 4px solid #33ff66;
+  color: #ccffd6;
+  padding: 14px;
+  border-radius: 6px;
+  overflow: auto;
+}
+code {
+  background: rgba(57,255,155,0.03);
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: #bdf8b4;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #9effa6;
+  border-top: 2px solid rgba(57,255,155,0.1);
+  font-size: 0.9rem;
+}
+
+/* Small screens */
 @media (max-width:720px) {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
+  header { padding: 30px 10px; }
 }
 
-header, footer {
-  background-color: #000810;
-  padding: 10px 20px;
-  border-bottom: 1px solid #33ff66;
-  color: #98ff8a;
-}
 
 header a {
   color: #33ff66;
