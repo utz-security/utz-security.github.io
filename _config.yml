@@ -6,3 +6,14 @@ theme: jekyll-theme-cayman
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+
+nav:
+  - name: "Inicio"
+    link: /
+  - name: "Blog"
+    link: /blog/
+  - name: "Sobre mí"
+    link: /about/
+  - name: "Contacto"
+    link: /contact/
