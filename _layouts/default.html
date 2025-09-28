@@ -3,52 +3,138 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>UTZ Security</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Fira Mono', monospace;
+      background-color: #0f0f0f;
+      color: #fff;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background-color: #111;
+      position: relative;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo svg {
+      height: 60px;
+    }
+
+    /* Menú hamburguesa */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ff66;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #111;
+        padding: 10px 0;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      nav a {
+        padding: 10px 20px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="header-container">
-    <div class="menu-toggle" onclick="toggleMenu()">
-      &#9776;
-    </div>
-    <div class="logo">
-      <!-- SVG Logo centrado -->
-      <svg width="80" height="80" viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="45" fill="url(#grad-logo)" />
-        <defs>
-          <linearGradient id="grad-logo" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" style="stop-color:#00ff66;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#8a2be2;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-      </svg>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/blog/">Blog</a></li>
-        <li><a href="/about/">Sobre mí</a></li>
-        <li><a href="/contact/">Contacto</a></li>
-      </ul>
-    </nav>
+  <!-- Menú hamburguesa -->
+  <div class="menu-toggle" id="menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+
+  <!-- Logo centrado -->
+  <div class="logo">
+    <svg width="150" height="80" viewBox="0 0 300 80">
+      <defs>
+        <linearGradient id="grad-logo" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#00ff66;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#8a2be2;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+      <circle cx="40" cy="40" r="35" fill="url(#grad-logo)" />
+      <text x="100" y="50%" dominant-baseline="middle" fill="#ffffff" font-family="Fira Mono, monospace" font-size="20">UTZ Security</text>
+    </svg>
+  </div>
+
+  <!-- Menú links -->
+  <nav id="nav-menu">
+    <a href="#about">Sobre mí</a>
+    <a href="#projects">Proyectos</a>
+    <a href="#skills">Habilidades</a>
+    <a href="#contact">Contacto</a>
+  </nav>
 </header>
 
-<main id="main">
-  {{ content }}
-</main>
-
-<footer>
-  ✍️ Proyecto UTZ Security - Blog de Ciberseguridad
-</footer>
-
 <script>
-function toggleMenu() {
-  document.querySelector('nav').classList.toggle('active');
-}
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav-menu');
+
+  toggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+  });
 </script>
 
 </body>
