@@ -4,7 +4,7 @@
 
 /* Full Hacker theme - UTZ Security */
 body {
-  background: linear-gradient(120deg, #00ff66 0%, #8e2eff 100%);
+  background: linear-gradient(120deg, #00ff66 0%, #6a00ff 100%); /* Verde neon + violeta oscuro neon */
   color: #98ff8a;
   font-family: "Fira Mono", monospace;
   line-height: 1.65;
@@ -67,14 +67,19 @@ a:hover { text-decoration: underline; }
   display: flex;
 }
 
-/* Nav estilo móvil */
+/* Nav estilo móvil y PC */
+#main-nav ul {
+  display: flex;
+  gap: 20px;
+}
+
 @media (max-width: 1024px) {
   #main-nav {
     display: none;
     flex-direction: column;
     background: rgba(0,0,0,0.95);
     position: fixed;
-    top: 60px; /* debajo del header */
+    top: 60px;
     left: 0;
     height: calc(100% - 60px);
     width: 250px;
@@ -116,3 +121,13 @@ footer {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
 }
+
+/* Header content centrado */
+#header-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 80px;
+}
+#logo { z-index: 1; }
