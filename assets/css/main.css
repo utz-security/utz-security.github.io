@@ -1,55 +1,37 @@
----
----
-
-@import "{{ site.theme }}";
-
-/* Full Hacker theme - UTZ Security
-   Horizontal gradient: verde neon (izq) -> violeta oscuro neon (der)
-*/
-
+/* --- BODY Y FUENTES --- */
 body {
-  background: linear-gradient(to right, #00ff66 0%, #8a2be2 100%);
+  background: linear-gradient(to right, #00ff66, #8a2be2);
   color: #98ff8a;
   font-family: "Fira Mono", "Source Code Pro", Menlo, Monaco, monospace;
   line-height: 1.65;
+  margin: 0;
   padding-top: 28px;
 }
 
-/* Page wrapper */
-#main {
-  max-width: 860px;
-  margin: 20px auto;
+/* --- HEADER GRADIENTE VERTICAL --- */
+header {
+  background: linear-gradient(to bottom, #00ff66, #8a2be2);
   padding: 20px;
-  background: rgba(0,0,0,0.6);
-  border-radius: 8px;
-  border: 1px solid rgba(57,255,155,0.06);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+  text-align: center;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 5;
 }
 
-/* Post cards */
-.post-list li, .blog-item {
-  border: 1px solid rgba(57,255,155,0.04);
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.45);
-  transition: transform 0.12s, box-shadow 0.12s;
+#header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.post-list li:hover, .blog-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+#logo svg {
+  height: 50px;
 }
 
-/* Headings with glow */
-h1, h2, h3 {
-  color: #d6ffd1;
-  text-shadow: 0 0 8px rgba(57,255,155,0.08);
-  letter-spacing: 0.2px;
-}
-h1 { font-size: 2rem; }
-
-/* Nav styles */
+/* --- MENÚ RESPONSIVE --- */
 .menu-toggle {
   display: none;
   cursor: pointer;
@@ -73,7 +55,11 @@ nav a {
   text-decoration: none;
 }
 
-/* Menú desplegable vertical */
+nav a:hover {
+  text-decoration: underline;
+  color: #0ff;
+}
+
 nav.active ul {
   display: flex;
   flex-direction: column;
@@ -91,17 +77,64 @@ nav.active li {
   margin: 0.5rem 0;
 }
 
-/* Mostrar toggle en pantalla chica */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
+  .menu-toggle { display: block; }
+  nav ul { display: none; }
+}
+
+@media (min-width: 768px) {
+  nav ul { display: flex; flex-direction: row; }
+  .menu-toggle { display: none; }
+}
+
+/* --- MAIN CONTAINER --- */
+#main {
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(to bottom, rgba(0,255,102,0.2), rgba(138,43,226,0.2));
+  border-radius: 8px;
+  border: 1px solid rgba(57,255,155,0.06);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+/* --- POSTS / BLOG CARDS --- */
+.post-list li, .blog-item {
+  border: 1px solid rgba(57,255,155,0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.45);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.post-list li:hover, .blog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+}
+
+/* --- TITULOS CON GLOW NEON --- */
+h1, h2, h3, h1.front-matter {
+  background: linear-gradient(to bottom, #00ff66, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6);
+  animation: neon-glow 1.8s ease-in-out infinite alternate;
+  letter-spacing: 0.2px;
+}
+
+@keyframes neon-glow {
+  from {
+    text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6);
   }
-  nav ul {
-    display: none;
+  to {
+    text-shadow: 0 0 20px rgba(0,255,102,1), 0 0 30px rgba(138,43,226,0.8);
   }
 }
 
-/* Terminal-like accent bar for code */
+h1 { font-size: 2rem; }
+
+/* --- TERMINAL-LIKE PRE / CODE --- */
 pre {
   background: #001215;
   border-left: 4px solid #33ff66;
@@ -111,7 +144,6 @@ pre {
   overflow: auto;
 }
 
-/* Inline code */
 code {
   background: rgba(57,255,155,0.03);
   padding: 3px 6px;
@@ -119,11 +151,20 @@ code {
   color: #bdf8b4;
 }
 
-/* Links neon */
+/* --- LINKS NEON --- */
 a { color: #33ff66; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* small screens */
+/* --- FOOTER --- */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #111;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* --- RESPONSIVE --- */
 @media (max-width:720px) {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
