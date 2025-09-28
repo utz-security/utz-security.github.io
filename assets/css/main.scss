@@ -194,3 +194,57 @@ footer .footer-links a:hover {
   padding: 20px;
 }
 
+/* Contenedor del menú */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Icono hamburguesa */
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #00ffcc;
+  padding: 10px;
+  user-select: none;
+}
+
+/* Sidebar oculto */
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: rgba(0,0,0,0.95);
+  padding: 1rem;
+  border-radius: 8px;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 100;
+}
+
+/* Links del sidebar */
+.sidebar a {
+  color: #00ffcc;
+  text-decoration: none;
+  margin: 0.5rem 0;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+  color: #ffffff;
+}
+
+/* Mostrar menú al hacer clic con JS */
+.menu-container.active .sidebar {
+  display: flex;
+}
+
+/* Logo responsive */
+.logo img {
+  max-width: 180px; /* Ajusta según tamaño que quieras */
+  height: auto;
+  display: block;
+}
+
