@@ -1,3 +1,8 @@
+---
+---
+
+@import "{{ site.theme }}";
+
 /* --- BODY Y FUENTES --- */
 body {
   background: linear-gradient(to right, #00cc44, #6a00cc); /* gradiente horizontal */
@@ -19,62 +24,23 @@ header {
   z-index: 20;
 }
 
-/* --- MAIN CONTAINER --- */
-#main {
-  max-width: 860px;
-  margin: 20px auto;
-  padding: 20px;
-  background: linear-gradient(to right, rgba(0,204,68,0.2), rgba(106,0,204,0.2)); /* horizontal y semi-transparente */
-  border-radius: 8px;
-  border: 1px solid rgba(57,255,155,0.06);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-  position: relative;
-  z-index: 10;
+/* --- LOGO SVG --- */
+#logo svg text {
+  fill: #ffffff;
 }
 
-/* --- TITULOS CON GLOW --- */
-h1, h2, h3, h1.front-matter {
-  background: linear-gradient(to right, #00cc44, #6a00cc); /* horizontal */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(0,204,68,0.8), 0 0 24px rgba(106,0,204,0.6);
-  animation: neon-glow 1.8s ease-in-out infinite alternate;
-  letter-spacing: 0.2px;
-}
-
-/* --- POSTS / BLOG CARDS --- */
-.post-list li, .blog-item {
-  border: 1px solid rgba(57,255,155,0.04);
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 6px;
-  background: linear-gradient(to right, rgba(0,204,68,0.2), rgba(106,0,204,0.2)); /* horizontal */
-  transition: transform 0.12s, box-shadow 0.12s;
-}
-
-.post-list li:hover, .blog-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
-}
-
-/* --- ANIMACIÓN GLOW --- */
-@keyframes neon-glow {
-  from { text-shadow: 0 0 12px rgba(0,204,68,0.8), 0 0 24px rgba(106,0,204,0.6); }
-  to   { text-shadow: 0 0 20px rgba(0,204,68,1), 0 0 30px rgba(106,0,204,0.8); }
-}
-
-/* --- MENÚ --- */
+/* --- MENÚ RESPONSIVE --- */
 .menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: #00cc44; }
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
 nav li { margin: 0 1rem; }
 nav a { color: #00cc44; text-decoration: none; }
 nav a:hover { color: #0ff; text-decoration: underline; }
 
+/* Menú desplegable vertical con z-index alto */
 nav.active {
-  position: relative;
+  position: relative; 
   z-index: 50;
 }
-
 nav.active ul {
   display: flex;
   flex-direction: column;
@@ -85,6 +51,72 @@ nav.active ul {
   width: 200px;
   padding: 1rem;
   border-radius: 8px;
+}
+nav.active li { margin: 0.5rem 0; }
+
+/* Mostrar toggle en pantalla chica */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  nav ul { display: none; }
+}
+
+/* --- MAIN CONTAINER --- */
+#main {
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(to right, rgba(0,204,68,0.2), rgba(106,0,204,0.2));
+  border-radius: 8px;
+  border: 1px solid rgba(57,255,155,0.06);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
+}
+
+/* --- POSTS / BLOG CARDS --- */
+.post-list li, .blog-item {
+  border: 1px solid rgba(57,255,155,0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: linear-gradient(to right, rgba(0,204,68,0.2), rgba(106,0,204,0.2));
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.post-list li:hover, .blog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+}
+
+/* --- TITULOS CON GLOW Y CONTORNO --- */
+h1, h2, h3, h1.front-matter {
+  background: linear-gradient(to right, #00cc44, #6a00cc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  z-index: 15;
+  text-shadow:
+     2px 2px 0 #6a00cc,
+    -2px 2px 0 #6a00cc,
+     2px -2px 0 #6a00cc,
+    -2px -2px 0 #6a00cc,
+     0 0 6px #6a00cc;
+  letter-spacing: 0.2px;
+  animation: neon-glow 1.8s ease-in-out infinite alternate;
+}
+
+/* --- ANIMACIÓN GLOW --- */
+@keyframes neon-glow {
+  from { text-shadow: 2px 2px 0 #6a00cc, -2px 2px 0 #6a00cc, 2px -2px 0 #6a00cc, -2px -2px 0 #6a00cc, 0 0 6px #6a00cc; }
+  to   { text-shadow: 2px 2px 0 #6a00cc, -2px 2px 0 #6a00cc, 2px -2px 0 #6a00cc, -2px -2px 0 #6a00cc, 0 0 12px #6a00cc; }
+}
+
+/* --- TEXTO NORMAL CON CONTORNO SUTIL --- */
+#main p, #main li, #main a {
+  text-shadow:
+     1px 1px 0 #6a00cc,
+    -1px 1px 0 #6a00cc,
+     1px -1px 0 #6a00cc,
+    -1px -1px 0 #6a00cc;
 }
 
 /* --- TERMINAL-LIKE PRE / CODE --- */
@@ -102,6 +134,10 @@ code {
   border-radius: 4px;
   color: #bdf8b4;
 }
+
+/* --- LINKS NEON --- */
+a { color: #33ff66; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* --- FOOTER --- */
 footer {
