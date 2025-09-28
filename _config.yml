@@ -13,3 +13,7 @@ header_pages:
   - blog.md
   - about.md
   - contact.md
+
+
+sass:
+  style: compressed
