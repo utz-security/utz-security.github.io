@@ -8,22 +8,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div id="header-content">
-      <!-- Botón hamburguesa -->
-      <div id="menu-toggle" class="menu-toggle">
-        <i class="fas fa-bars fa-2x"></i>
-      </div>
 
-      <!-- Logo SVG solo texto -->
-      <div id="logo">
-        <svg width="220" height="50" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
-          <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="Fira Mono" font-size="28">UTZ Security</text>
-        </svg>
-      </div>
+  <header>
+    <!-- Logo centrado -->
+    <div id="logo">
+      <svg width="180" height="50" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#00ffcc" font-family="Fira Mono" font-size="28">UTZ Security</text>
+      </svg>
     </div>
 
-    <!-- Navegación -->
+    <!-- Menú hamburguesa a la izquierda -->
+    <div id="menu-toggle">
+      <i class="fas fa-bars fa-2x"></i>
+    </div>
+
+    <!-- Navegación desplegable -->
     <nav id="main-nav">
       <ul>
         <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
@@ -43,7 +42,7 @@
   </footer>
 
   <script>
-    // Menú hamburguesa funcional
+    // Función menú hamburguesa
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
 
@@ -52,4 +51,4 @@
     });
   </script>
 </body>
-</html> 
+</html>
