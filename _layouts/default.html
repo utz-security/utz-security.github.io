@@ -2,35 +2,40 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body class="{% if page.url == '/' or page.url == '' %}home{% elsif page.url == '/blog/' %}blog{% elsif page.url == '/about/' %}about{% elsif page.url == '/contact/' %}contact{% else %}{{ page.title | slugify }}{% endif %}">
-
-  <header>
-    <h1 class="glow">{{ site.title }}</h1>
-    <nav>
-      <a href="{{ '/' | relative_url }}"><i class="fas fa-house"></i> Inicio</a>
-      <a href="{{ '/blog/' | relative_url }}"><i class="fas fa-book"></i> Blog</a>
-      <a href="{{ '/about/' | relative_url }}"><i class="fas fa-user"></i> Sobre mí</a>
-      <a href="{{ '/contact/' | relative_url }}"><i class="fas fa-envelope"></i> Contacto</a>
-    </nav>
+<body>
+  <!-- Header con logo -->
+  <header class="site-header">
+    <div class="logo">
+      <a href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="UTZ Security Logo" height="50">
+      </a>
+    </div>
   </header>
 
-  <main id="main">
+  <!-- Sidebar hacker -->
+  <div id="sidebar">
+    <h2>☰ Navegación</h2>
+    <ul>
+      <li><a href="{{ '/' | relative_url }}">🏠 Inicio</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}">📚 Blog</a></li>
+      <li><a href="{{ '/about/' | relative_url }}">👤 Sobre mí</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}">✉️ Contacto</a></li>
+    </ul>
+  </div>
+
+  <!-- Contenido principal -->
+  <main id="main" class="page-content">
     {{ content }}
   </main>
 
-  <footer>
-    <p class="footer-text">&copy; {{ site.time | date: "%Y" }} {{ site.author }} — UTZ Security</p>
-    <nav class="footer-links">
-      <a href="https://github.com/utz-security" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-      <a href="https://www.linkedin.com/in/cristian-huscht" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href="mailto:chuscht@gmail.com"><i class="fas fa-envelope"></i> Email</a>
-    </nav>
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p>© {{ site.title }} - {{ site.description }}</p>
   </footer>
-
 </body>
 </html>
