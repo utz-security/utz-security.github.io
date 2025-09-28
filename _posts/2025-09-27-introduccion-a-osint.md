@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducción a OSINT: qué es, riesgos y cómo protegerte"
-date: 2025-09-29
+date: 2025-09-27
 categories: [osint, privacidad, seguridad]
 ---
 
