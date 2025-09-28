@@ -6,118 +6,18 @@
   <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Fira Mono', monospace;
-      margin: 0;
-      padding: 0;
-      background-color: #0f0f0f;
-      color: #fff;
-    }
-
-    /* Header con gradiente vertical */
-    header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background: linear-gradient(to bottom, #00ff66, #8a2be2);
-      padding: 10px 20px;
-      position: relative;
-    }
-
-    #header-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      max-width: 1200px;
-    }
-
-    #logo svg {
-      height: 50px;
-    }
-
-    nav {
-      display: none;
-      width: 100%;
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    nav.active {
-      display: block;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav li {
-      margin: 10px 0;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    nav a:hover {
-      color: #0ff; /* verde neón al pasar mouse */
-    }
-
-    #menu-toggle {
-      cursor: pointer;
-      color: #fff;
-    }
-
-    @media(min-width: 768px) {
-      nav {
-        display: block;
-      }
-      nav ul {
-        display: flex;
-        justify-content: flex-end;
-        gap: 20px;
-      }
-      nav li {
-        margin: 0;
-      }
-      #menu-toggle {
-        display: none;
-      }
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 0 20px;
-      background: linear-gradient(to bottom, #00ff66, #8a2be2); /* mismo gradiente que header */
-      border-radius: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: #111;
-      margin-top: 20px;
-      font-size: 14px;
-    }
-  </style>
 </head>
 <body>
   <header>
     <div id="header-content">
-      <!-- Botón hamburguesa a la izquierda -->
-      <div id="menu-toggle">
+      <!-- Botón hamburguesa -->
+      <div id="menu-toggle" class="menu-toggle">
         <i class="fas fa-bars fa-2x"></i>
       </div>
 
-      <!-- Logo SVG centrado sin círculo -->
+      <!-- Logo SVG solo texto -->
       <div id="logo">
-        <svg width="180" height="50" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg">
+        <svg width="220" height="50" viewBox="0 0 220 50" xmlns="http://www.w3.org/2000/svg">
           <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#ffffff" font-family="Fira Mono" font-size="28">UTZ Security</text>
         </svg>
       </div>
@@ -134,7 +34,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     {{ content }}
   </main>
 
