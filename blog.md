@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Blog"
+permalink: /blog/
 ---
 
 📝 Aquí encontrarás todos mis artículos publicados hasta ahora:
