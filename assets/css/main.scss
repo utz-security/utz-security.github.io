@@ -3,21 +3,33 @@
 
 @import "{{ site.theme }}";
 
-/* Importamos fuente monospace */
+/* Fuente monospace */
 @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
 
-/* Full Hacker Theme */
+/* Body base */
 body {
-  background: radial-gradient(ellipse at top, #001217 0%, #000810 60%), #000;
   color: #98ff8a;
   font-family: 'Fira Mono', monospace;
   line-height: 1.65;
   margin: 0;
 }
 
-/* Header con imagen hacker */
+/* Fondos diferentes según página */
+body.utz-security header { 
+  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1600&q=80') center/cover no-repeat; 
+}
+body.blog header { 
+  background: url('https://images.unsplash.com/photo-1581091012184-4d2c8f776f0b?fit=crop&w=1600&q=80') center/cover no-repeat; 
+}
+body.about header { 
+  background: url('https://images.unsplash.com/photo-1503437313881-503a91226419?fit=crop&w=1600&q=80') center/cover no-repeat; 
+}
+body.contact header { 
+  background: url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?fit=crop&w=1600&q=80') center/cover no-repeat; 
+}
+
+/* Header */
 header {
-  background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?fit=crop&w=1600&q=80') center/cover no-repeat;
   padding: 40px 20px;
   text-align: center;
   border-bottom: 2px solid #33ff66;
@@ -111,10 +123,4 @@ footer {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
   header { padding: 30px 10px; }
-}
-
-
-header a {
-  color: #33ff66;
-  text-shadow: 0 0 4px #33ff66;
 }
