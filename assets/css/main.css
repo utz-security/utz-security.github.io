@@ -142,3 +142,39 @@ footer {
 #main-nav {
   display: none;
 }
+
+/* Nav estilo móvil */
+@media (max-width: 1024px) {
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.95);
+    position: fixed;
+    top: 60px; /* debajo del header */
+    left: 0;
+    height: calc(100% - 60px);
+    width: 250px;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  #main-nav.active {
+    display: flex;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #main-nav li a {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+    color: #00ffcc;
+    text-decoration: none;
+  }
+
+  #main-nav li a:hover {
+    color: #fff;
+  }
+}
