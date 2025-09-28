@@ -10,12 +10,12 @@
 <body class="{% if page.url == '/' or page.url == '' %}home{% elsif page.url == '/blog/' %}blog{% elsif page.url == '/about/' %}about{% elsif page.url == '/contact/' %}contact{% else %}{{ page.title | slugify }}{% endif %}">
 
   <header>
-    <h1>{{ site.title }}</h1>
+    <h1 class="glow">{{ site.title }}</h1>
     <nav>
-      <a href="{{ '/' | relative_url }}">Inicio</a>
-      <a href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a href="{{ '/about/' | relative_url }}">Sobre mí</a>
-      <a href="{{ '/contact/' | relative_url }}">Contacto</a>
+      <a href="{{ '/' | relative_url }}"><i class="fas fa-house"></i> Inicio</a>
+      <a href="{{ '/blog/' | relative_url }}"><i class="fas fa-book"></i> Blog</a>
+      <a href="{{ '/about/' | relative_url }}"><i class="fas fa-user"></i> Sobre mí</a>
+      <a href="{{ '/contact/' | relative_url }}"><i class="fas fa-envelope"></i> Contacto</a>
     </nav>
   </header>
 
@@ -24,7 +24,12 @@
   </main>
 
   <footer>
-    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }} — UTZ Security</p>
+    <p class="footer-text">&copy; {{ site.time | date: "%Y" }} {{ site.author }} — UTZ Security</p>
+    <nav class="footer-links">
+      <a href="https://github.com/utz-security" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/cristian-huscht" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="mailto:chuscht@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+    </nav>
   </footer>
 
 </body>
