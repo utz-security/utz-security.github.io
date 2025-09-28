@@ -248,3 +248,39 @@ footer .footer-links a:hover {
   display: block;
 }
 
+/* Ocultamos cualquier menú viejo */
+nav#old-menu, .nav-old {
+  display: none !important;
+}
+
+/* Sidebar hamburguesa */
+.menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #00ffcc;
+  padding: 10px;
+}
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: rgba(0,0,0,0.95);
+  padding: 1rem;
+  border-radius: 8px;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.menu-container.active .sidebar {
+  display: flex;
+}
+
+
