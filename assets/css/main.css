@@ -7,64 +7,46 @@
    UTZ Security - Full Hacker Theme
    ======================== */
 
-/* Body y fuente */
 body {
-  background: radial-gradient(ellipse at top, #001217 0%, #000810 60%);
+  background: linear-gradient(120deg, #001217 0%, #000810 100%);
   color: #98ff8a;
   font-family: "Fira Mono", "Source Code Pro", Menlo, Monaco, monospace;
   line-height: 1.65;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
-/* Contenedor principal */
-#main {
-  max-width: 860px;
-  margin: 12px auto;
-  padding: 28px;
-  background: rgba(0,6,8,0.7);
-  border: 1px solid rgba(57,255,155,0.06);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
-  border-radius: 8px;
-}
-
-/* Encabezados con glow */
-h1, h2, h3 {
-  color: #d6ffd1;
-  text-shadow: 0 0 8px rgba(57,255,155,0.08);
-}
-h1 { font-size: 2rem; }
-
-/* Enlaces y hover */
-a {
-  color: #33ff66;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-
-/* Nav y menú hamburguesa */
+/* Header */
 header {
-  background: linear-gradient(90deg, #00ff66 0%, #8e2eff 100%);
+  display: flex;
+  justify-content: center; /* Centra el logo */
+  align-items: center;
   padding: 10px 20px;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 
 header .logo img {
-  height: 50px;
+  height: 60px;
 }
 
+/* Menú hamburguesa */
 #menu-toggle {
+  position: absolute;
+  top: 10px;
+  left: 20px;
   background: none;
   border: none;
   color: #fff;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   cursor: pointer;
-  display: none;
+  z-index: 1000;
+}
+
+/* Nav */
+#main-nav {
+  display: flex;
+  flex-direction: row;
 }
 
 #main-nav ul {
@@ -85,6 +67,53 @@ header .logo img {
   background: rgba(255,255,255,0.1);
 }
 
+/* Sidebar para móvil */
+@media (max-width: 1024px) {
+  #main-nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0,0,0,0.95);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: calc(100% - 60px);
+    width: 250px;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  #main-nav ul {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #main-nav li a {
+    padding: 10px 15px;
+    font-size: 1.1rem;
+  }
+
+  #main-nav.active {
+    display: flex;
+  }
+}
+
+/* Main content */
+#main {
+  max-width: 860px;
+  margin: 12px auto;
+  padding: 28px;
+  background: rgba(0,6,8,0.7);
+  border: 1px solid rgba(57,255,155,0.06);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+  border-radius: 8px;
+}
+
+/* Headers glow */
+h1, h2, h3 {
+  color: #d6ffd1;
+  text-shadow: 0 0 8px rgba(57,255,155,0.08);
+}
+
 /* Blog posts */
 .blog-list .blog-item {
   margin-bottom: 2rem;
@@ -93,62 +122,11 @@ header .logo img {
   border-radius: 8px;
 }
 
-/* Post header */
 .post-header {
   background: linear-gradient(90deg, #00ff66 0%, #8e2eff 100%);
   padding: 20px;
   border-radius: 6px;
   margin-bottom: 16px;
-}
-
-/* Responsive - móvil */
-@media (max-width: 768px) {
-  #menu-toggle {
-    display: block;
-  }
-
-  #main-nav {
-    display: none;
-    flex-direction: column;
-    background: rgba(0,0,0,0.9);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    padding: 10px 0;
-    border-top: 1px solid rgba(57,255,155,0.2);
-  }
-
-  #main-nav.active {
-    display: flex;
-  }
-
-  #main-nav ul {
-    flex-direction: column;
-    gap: 10px;
-    padding-left: 0;
-  }
-
-  #main-nav li a {
-    padding: 10px 20px;
-  }
-}
-
-/* Código en posts */
-pre {
-  background: #001215;
-  border-left: 4px solid #33ff66;
-  color: #ccffd6;
-  padding: 14px;
-  border-radius: 6px;
-  overflow: auto;
-}
-
-code {
-  background: rgba(57,255,155,0.03);
-  padding: 3px 6px;
-  border-radius: 4px;
-  color: #bdf8b4;
 }
 
 /* Footer */
