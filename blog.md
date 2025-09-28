@@ -1,8 +1,11 @@
 ---
 layout: page
-title: Blog
+title: "Blog"
 permalink: /blog/
 ---
+
+Acá van a estar mis posts 🚀
+
 
 # 📚 Blog de Ciberseguridad
 
