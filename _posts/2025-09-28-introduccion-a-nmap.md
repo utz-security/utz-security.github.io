@@ -24,7 +24,11 @@ sudo apt install nmap -y
 sudo dnf install nmap -y
 
 🔹 **Comandos básicos de Nmap:**
+
+
 1️⃣ Escaneo rápido de un host:
+
+
 nmap 192.168.1.10
 
 Detecta puertos abiertos en el host.
