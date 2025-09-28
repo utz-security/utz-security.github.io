@@ -1,14 +1,9 @@
 ---
 layout: page
-title: Contacto
-permalink: /contact/
+title: "Contacto"
 ---
 
-# 📬 Contacto
+📧 Si querés contactarme, podés usar estos canales:
 
-Si querés conectarte conmigo, podés usar alguno de estos enlaces:
-
-- 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)  
-- 🐙 [GitHub](https://github.com/utz-security)  
-
-O enviarme un correo a: chuscht@gmail.com 
+- 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)
+- 🐙 [GitHub](https://github.com/utz-security)
