@@ -1,6 +1,7 @@
 ---
 layout: page
 title: "Sobre mí"
+permalink: /about/
 ---
 
 👨‍💻 Soy Cristian Hernan Huscht, Analista en Ciberseguridad Jr / Administrador de Sistemas Jr en formación.
