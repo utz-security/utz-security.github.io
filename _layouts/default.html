@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title | default: site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="{{ page.layout | default: 'default' }}">
+<body class="default">
 
-<header id="site-header">
-  <div class="header-container">
-    <!-- Menú hamburguesa a la izquierda -->
-    <div class="hamburger" id="hamburger">
-      <i class="fas fa-bars"></i>
+  <header>
+    <div class="header-container">
+      <!-- Menú hamburguesa -->
+      <div id="hamburger" onclick="toggleNav()">
+        <i class="fas fa-bars fa-2x"></i>
+      </div>
+
+      <!-- Logo centrado -->
+      <div class="logo">
+        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="UTZ Security Logo">
+      </div>
     </div>
 
-    <!-- Logo a la derecha -->
-    <div class="logo">
-      <!-- Poner tu SVG aquí -->
-      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="UTZ Security Logo">
-    </div>
-
-    <!-- Menú desplegable -->
+    <!-- Menú oculto -->
     <nav id="main-nav">
       <ul>
         <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
@@ -31,25 +31,22 @@
         <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
       </ul>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main id="main">
-  {{ content }}
-</main>
+  <main id="main">
+    {{ content }}
+  </main>
 
-<footer>
-  <p>© 2025 UTZ Security - Cristian Huscht</p>
-</footer>
+  <footer>
+    <p>© 2025 UTZ Security — Cristian Huscht</p>
+  </footer>
 
-<script>
-  // Toggle menú hamburguesa
-  const hamburger = document.getElementById('hamburger');
-  const nav = document.getElementById('main-nav');
-  hamburger.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-</script>
+  <script>
+    function toggleNav() {
+      const nav = document.getElementById('main-nav');
+      nav.classList.toggle('open');
+    }
+  </script>
 
 </body>
 </html>
