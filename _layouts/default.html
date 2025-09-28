@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    {{ seo }}
-  </head>
-  <body>
-    <header>
-      <h1><a href="{{ '/' | relative_url }}">UTZ Security</a></h1>
-      <nav>
-        <a href="{{ '/' | relative_url }}">Inicio</a>
-        <a href="{{ '/blog/' | relative_url }}">Blog</a>
-        <a href="{{ '/about/' | relative_url }}">Sobre mí</a>
-        <a href="{{ '/contact/' | relative_url }}">Contacto</a>
-      </nav>
-    </header>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  {{ seo }}
+</head>
+<body>
 
-    <main id="main">
-      {{ content }}
-    </main>
+  <!-- Header -->
+  <header>
+    <h1><a href="{{ '/' | relative_url }}">UTZ Security</a></h1>
+    <nav>
+      <a href="{{ '/' | relative_url }}">Inicio</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/about/' | relative_url }}">Sobre mí</a>
+      <a href="{{ '/contact/' | relative_url }}">Contacto</a>
+    </nav>
+  </header>
 
-    <footer>
-      <p>UTZ Security © 2025</p>
-    </footer>
-  </body>
+  <!-- Main content -->
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>UTZ Security © 2025</p>
+    <p>Creado por Cristian Huscht</p>
+  </footer>
+
+</body>
 </html>
