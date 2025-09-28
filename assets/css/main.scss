@@ -119,3 +119,30 @@ a:hover { text-decoration: underline; }
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
 }
+
+/* Footer estilo hacker */
+footer {
+  background: linear-gradient(135deg, #001217, #002022);
+  color: #33ff66;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid rgba(57,255,155,0.08);
+  box-shadow: 0 -4px 30px rgba(57,255,155,0.15);
+  font-size: 0.9rem;
+}
+
+footer .footer-links a {
+  color: #9effa6;
+  margin: 0 10px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+footer .footer-links a i {
+  margin-right: 4px;
+}
+footer .footer-links a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 4px #33ff66;
+  transform: translateY(-2px);
+}
+
