@@ -150,3 +150,47 @@ footer .footer-links a:hover {
   margin-bottom: 16px; /* separa del contenido siguiente */
 }
 
+/* ===== Header con logo ===== */
+.site-header {
+  background: #000;
+  text-align: center;
+  padding: 10px;
+  border-bottom: 1px solid #0f0;
+}
+.site-header img {
+  max-height: 50px;
+}
+
+/* ===== Sidebar hacker ===== */
+#sidebar {
+  position: fixed;
+  left: 0;
+  top: 70px; /* para que no tape el header */
+  width: 220px;
+  height: calc(100% - 70px);
+  background: #000;
+  color: #33ff66;
+  padding: 20px;
+  border-right: 1px solid #0f0;
+  font-family: "Fira Code", monospace;
+  overflow-y: auto;
+}
+
+#sidebar a {
+  color: #00ffcc;
+  text-decoration: none;
+  display: block;
+  margin: 8px 0;
+}
+
+#sidebar a:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #33ff66;
+}
+
+/* ===== Ajuste del contenido para que no se monte con el sidebar ===== */
+.page-content {
+  margin-left: 240px;
+  padding: 20px;
+}
+
