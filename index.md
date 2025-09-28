@@ -41,4 +41,4 @@ Este espacio es mi **bitácora de aprendizaje**: aquí comparto lo que voy estud
 - 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)  
 - 🐙 [GitHub](https://github.com/utz-security)  
 
-✍️ *Este es el inicio del proyecto **UTZ Security**. Pronto publicaré mis primeros artículos, ¡gracias por visitar!*
+*¡Gracias por visitar!*
