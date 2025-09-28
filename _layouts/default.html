@@ -3,48 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
- <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-  <header>
-    <div class="header-top">
-      <!-- Logo -->
-      <div class="logo">
-        <img src="/assets/images/logo.svg" alt="UTZ Security Logo" />
-      </div>
+<body class="{{ page.layout | default: 'default' }}">
 
-      <!-- Menú hamburguesa -->
-      <div class="menu-container">
-        <div class="hamburger">&#9776;</div>
-        <nav class="sidebar">
-          <a href="/">Inicio</a>
-          <a href="/about">Sobre mí</a>
-          <a href="/blog">Blog</a>
-          <a href="/contact">Contacto</a>
-        </nav>
-      </div>
+<header id="site-header">
+  <div class="header-container">
+    <!-- Menú hamburguesa a la izquierda -->
+    <div class="hamburger" id="hamburger">
+      <i class="fas fa-bars"></i>
     </div>
-  </header>
 
-  <main id="main">
-    {{ content }}
-  </main>
+    <!-- Logo a la derecha -->
+    <div class="logo">
+      <!-- Poner tu SVG aquí -->
+      <img src="{{ '/assets/img/logo.svg' | relative_url }}" alt="UTZ Security Logo">
+    </div>
 
-  <footer>
-    ✍️ &copy; {{ site.time | date: "%Y" }} UTZ Security
-  </footer>
+    <!-- Menú desplegable -->
+    <nav id="main-nav">
+      <ul>
+        <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+        <li><a href="{{ '/about/' | relative_url }}">Sobre mí</a></li>
+        <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const hamburger = document.querySelector(".hamburger");
-      const menuContainer = document.querySelector(".menu-container");
+<main id="main">
+  {{ content }}
+</main>
 
-      hamburger.addEventListener("click", () => {
-        menuContainer.classList.toggle("active");
-      });
-    });
-  </script>
+<footer>
+  <p>© 2025 UTZ Security - Cristian Huscht</p>
+</footer>
+
+<script>
+  // Toggle menú hamburguesa
+  const hamburger = document.getElementById('hamburger');
+  const nav = document.getElementById('main-nav');
+  hamburger.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+</script>
+
 </body>
 </html>
