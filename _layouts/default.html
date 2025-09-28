@@ -1,46 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="description" content="{{ page.excerpt | default: site.description }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-{% assign page_class = page.slug | default: "" %}
-{% if page_class == "" and page.path %}
-  {% assign last = page.path | split:'/' | last %}
-  {% assign page_class = last | split:'.' | first %}
-{% endif %}
-{% if page_class == "" %}
-  {% assign page_class = "home" %}
-{% endif %}
-<body class="{{ page_class | slugify }}">
+<body class="{% if page.url == '/' or page.url == '' %}home{% elsif page.url == '/blog/' %}blog{% elsif page.url == '/about/' %}about{% elsif page.url == '/contact/' %}contact{% else %}{{ page.title | slugify }}{% endif %}">
 
-  <!-- HEADER -->
   <header>
-    {% if page.url == "/" or page_class == "index" or page_class == "home" %}
-      <h1>{{ site.title }}</h1>
-      <p>Bienvenido a mi blog personal de ciberseguridad 👋</p>
-    {% elsif page.url == "/blog/" or page_class == "blog" %}
-      <h1>Blog de Ciberseguridad</h1>
-      <p>Tus write-ups, guías y resúmenes de seguridad informática</p>
-    {% elsif page.url == "/about/" or page_class == "about" %}
-      <h1>Sobre mí</h1>
-      <p>Aprendiz de ciberseguridad y administrador de sistemas en formación</p>
-    {% elsif page.url == "/contact/" or page_class == "contact" %}
-      <h1>Contacto</h1>
-      <p>Conectemos y compartamos conocimientos en seguridad informática</p>
-    {% else %}
-      <h1>{{ page.title }}</h1>
-    {% endif %}
-
+    <h1>{{ site.title }}</h1>
     <nav>
-      <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Inicio</a>
-      <a href="{{ '/blog/' | relative_url }}"><i class="fa-solid fa-book-open"></i> Blog</a>
-      <a href="{{ '/about/' | relative_url }}"><i class="fa-solid fa-user"></i> Sobre mí</a>
-      <a href="{{ '/contact/' | relative_url }}"><i class="fa-solid fa-envelope"></i> Contacto</a>
+      <a href="{{ '/' | relative_url }}">Inicio</a>
+      <a href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a href="{{ '/about/' | relative_url }}">Sobre mí</a>
+      <a href="{{ '/contact/' | relative_url }}">Contacto</a>
     </nav>
   </header>
 
@@ -49,7 +24,7 @@
   </main>
 
   <footer>
-    &copy; {{ site.time | date: "%Y" }} {{ site.author }} — UTZ Security
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.author }} — UTZ Security</p>
   </footer>
 
 </body>
