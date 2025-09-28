@@ -2,6 +2,15 @@
 layout: post
 title: "Introducción a Nmap: escaneo básico en Linux"
 date: 2025-09-28
+---
+
+Este es mi primer post sobre Nmap 😃
+
+
+---
+layout: post
+title: "Introducción a Nmap: escaneo básico en Linux"
+date: 2025-09-28
 categories: [herramientas, nmap, linux]
 ---
 
