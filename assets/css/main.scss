@@ -3,11 +3,8 @@
 
 @import "{{ site.theme }}";
 
-/* Full Hacker theme - UTZ Security
-   Dark terminal look, monospace, neon green glow
-*/
+/* ===== Full Hacker Theme - UTZ Security ===== */
 
-/* BODY general */
 body {
   background: radial-gradient(ellipse at top, #001217 0%, #000810 60%), #000;
   color: #98ff8a;
@@ -33,53 +30,58 @@ h1, h2, h3 {
   text-shadow: 0 0 8px rgba(57,255,155,0.08);
   letter-spacing: 0.2px;
 }
-h1.glow {
-  text-shadow: 0 0 6px #33ff66, 0 0 12px #33ff66, 0 0 24px #00ffcc;
+h1 { font-size: 2rem; }
+
+/* Logo */
+.logo img {
+  height: 40px;
 }
 
-/* HEADER oscuro por defecto */
-header {
-  background: linear-gradient(135deg, #001217, #001924);
-  color: #33ff66;
-  padding: 40px 20px;
-  text-align: center;
-  border-bottom: 1px solid rgba(57,255,155,0.08);
-  box-shadow: 0 0 30px rgba(57,255,155,0.15);
-}
-
-/* HEADER por página con gradientes */
-body.home header {
-  background: linear-gradient(135deg, #001217, #002233);
-}
-body.blog header {
-  background: linear-gradient(135deg, #001217, #003344);
-}
-body.about header {
-  background: linear-gradient(135deg, #001217, #004455);
-}
-body.contact header {
-  background: linear-gradient(135deg, #001217, #005566);
-}
-
-/* Nav style con iconos */
-nav a {
-  color: #9effa6;
-  padding: 6px 12px;
-  border-radius: 4px;
+/* Menu hamburguesa */
+.menu-container {
+  position: relative;
   display: inline-block;
-  margin: 0 6px;
+  float: right;
 }
-nav a i {
-  margin-right: 4px;
+
+.hamburger {
+  font-size: 28px;
+  cursor: pointer;
+  color: #00ffcc;
+  padding: 10px;
 }
-nav a:hover {
-  color: #ffffff;
+
+.sidebar {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: rgba(0,0,0,0.95);
+  padding: 1rem;
+  border-radius: 8px;
+  flex-direction: column;
+  min-width: 160px;
+  z-index: 100;
+}
+
+.menu-container.active .sidebar {
+  display: flex;
+}
+
+.sidebar a {
+  color: #00ffcc;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.sidebar a:hover {
   background: linear-gradient(90deg, rgba(57,255,155,0.07), rgba(0,230,255,0.03));
   box-shadow: 0 0 14px rgba(57,255,155,0.08);
-  transform: translateY(-2px);
 }
 
-/* Terminal-like accent bar for code */
+/* Terminal-like code */
 pre {
   background: #001215;
   border-left: 4px solid #33ff66;
@@ -97,190 +99,28 @@ code {
   color: #bdf8b4;
 }
 
-/* Links: neon */
-a { color: #33ff66; text-decoration: none; }
-a:hover { text-decoration: underline; }
-
 /* Post cards */
-.post-list li {
+.post-list li, .blog-item {
   border: 1px solid rgba(57,255,155,0.04);
   padding: 12px;
   margin: 12px 0;
   border-radius: 6px;
   transition: transform .12s, box-shadow .12s;
+  background: rgba(0,0,0,0.6);
 }
-.post-list li:hover {
+
+.post-list li:hover, .blog-item:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
-/* small screens */
+/* Links neon */
+a { color: #33ff66; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Small screens */
 @media (max-width:720px) {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
+  .menu-container { float: none; }
 }
-
-/* Footer estilo hacker */
-footer {
-  background: linear-gradient(135deg, #001217, #002022);
-  color: #33ff66;
-  padding: 30px 20px;
-  text-align: center;
-  border-top: 1px solid rgba(57,255,155,0.08);
-  box-shadow: 0 -4px 30px rgba(57,255,155,0.15);
-  font-size: 0.9rem;
-}
-
-footer .footer-links a {
-  color: #9effa6;
-  margin: 0 10px;
-  text-decoration: none;
-  transition: 0.2s;
-}
-footer .footer-links a i {
-  margin-right: 4px;
-}
-footer .footer-links a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 4px #33ff66;
-  transform: translateY(-2px);
-}
-.post-header {
-  padding: 12px 20px; /* antes podía ser 28px o más, ahora más compacto */
-  margin-bottom: 16px; /* separa del contenido siguiente */
-}
-
-/* ===== Header con logo ===== */
-.site-header {
-  background: #000;
-  text-align: center;
-  padding: 10px;
-  border-bottom: 1px solid #0f0;
-}
-.site-header img {
-  max-height: 50px;
-}
-
-/* ===== Sidebar hacker ===== */
-#sidebar {
-  position: fixed;
-  left: 0;
-  top: 70px; /* para que no tape el header */
-  width: 220px;
-  height: calc(100% - 70px);
-  background: #000;
-  color: #33ff66;
-  padding: 20px;
-  border-right: 1px solid #0f0;
-  font-family: "Fira Code", monospace;
-  overflow-y: auto;
-}
-
-#sidebar a {
-  color: #00ffcc;
-  text-decoration: none;
-  display: block;
-  margin: 8px 0;
-}
-
-#sidebar a:hover {
-  color: #fff;
-  text-shadow: 0 0 8px #33ff66;
-}
-
-/* ===== Ajuste del contenido para que no se monte con el sidebar ===== */
-.page-content {
-  margin-left: 240px;
-  padding: 20px;
-}
-
-/* Contenedor del menú */
-.menu-container {
-  position: relative;
-  display: inline-block;
-}
-
-/* Icono hamburguesa */
-.hamburger {
-  font-size: 28px;
-  cursor: pointer;
-  color: #00ffcc;
-  padding: 10px;
-  user-select: none;
-}
-
-/* Sidebar oculto */
-.sidebar {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: rgba(0,0,0,0.95);
-  padding: 1rem;
-  border-radius: 8px;
-  flex-direction: column;
-  min-width: 160px;
-  z-index: 100;
-}
-
-/* Links del sidebar */
-.sidebar a {
-  color: #00ffcc;
-  text-decoration: none;
-  margin: 0.5rem 0;
-  display: block;
-  transition: color 0.3s ease;
-}
-
-.sidebar a:hover {
-  color: #ffffff;
-}
-
-/* Mostrar menú al hacer clic con JS */
-.menu-container.active .sidebar {
-  display: flex;
-}
-
-/* Logo responsive */
-.logo img {
-  max-width: 180px; /* Ajusta según tamaño que quieras */
-  height: auto;
-  display: block;
-}
-
-/* Ocultamos cualquier menú viejo */
-nav#old-menu, .nav-old {
-  display: none !important;
-}
-
-/* Sidebar hamburguesa */
-.menu-container {
-  position: relative;
-  display: inline-block;
-}
-
-.hamburger {
-  font-size: 28px;
-  cursor: pointer;
-  color: #00ffcc;
-  padding: 10px;
-}
-
-.sidebar {
-  display: none;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: rgba(0,0,0,0.95);
-  padding: 1rem;
-  border-radius: 8px;
-  flex-direction: column;
-  min-width: 160px;
-  z-index: 100;
-}
-
-.menu-container.active .sidebar {
-  display: flex;
-}
-
-
