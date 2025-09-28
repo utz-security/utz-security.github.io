@@ -2,53 +2,49 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>{{ page.title }} | {{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header con logo -->
-<header>
-  <div class="header-top">
-    <div class="logo">
-      <img src="/assets/images/logo.svg" alt="UTZ Security Logo" />
+  <header>
+    <div class="header-top">
+      <!-- Logo -->
+      <div class="logo">
+        <img src="/assets/images/logo.svg" alt="UTZ Security Logo" />
+      </div>
+
+      <!-- Menú hamburguesa -->
+      <div class="menu-container">
+        <div class="hamburger">&#9776;</div>
+        <nav class="sidebar">
+          <a href="/">Inicio</a>
+          <a href="/about">Sobre mí</a>
+          <a href="/blog">Blog</a>
+          <a href="/contact">Contacto</a>
+        </nav>
+      </div>
     </div>
+  </header>
 
-    <div class="menu-container">
-      <div class="hamburger">&#9776;</div>
-      <nav class="sidebar">
-        <a href="/">Inicio</a>
-        <a href="/about">Sobre mí</a>
-        <a href="/blog">Blog</a>
-        <a href="/contact">Contacto</a>
-      </nav>
-    </div>
-  </div>
-</header>
-
-
-  <!-- Sidebar hacker -->
-  <div id="sidebar">
-    <h2>☰ Navegación</h2>
-    <ul>
-      <li><a href="{{ '/' | relative_url }}">🏠 Inicio</a></li>
-      <li><a href="{{ '/blog/' | relative_url }}">📚 Blog</a></li>
-      <li><a href="{{ '/about/' | relative_url }}">👤 Sobre mí</a></li>
-      <li><a href="{{ '/contact/' | relative_url }}">✉️ Contacto</a></li>
-    </ul>
-  </div>
-
-  <!-- Contenido principal -->
-  <main id="main" class="page-content">
+  <main id="main">
     {{ content }}
   </main>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>© {{ site.title }} - {{ site.description }}</p>
+  <footer>
+    ✍️ &copy; {{ site.time | date: "%Y" }} UTZ Security
   </footer>
 
-  <script src="/assets/js/menu.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const hamburger = document.querySelector(".hamburger");
+      const menuContainer = document.querySelector(".menu-container");
+
+      hamburger.addEventListener("click", () => {
+        menuContainer.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
 </html>
