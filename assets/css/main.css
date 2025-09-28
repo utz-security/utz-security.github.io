@@ -184,3 +184,29 @@ nav.active li {
   }
 }
 
+
+#main {
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(57,255,155,0.06);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+}
+
+/* Post cards */
+.post-list li, .blog-item {
+  border: 1px solid rgba(57,255,155,0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.45);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.post-list li:hover, .blog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+}
+
