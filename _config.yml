@@ -1,1 +1,8 @@
+title: "UTZ Security"
+description: "Blog personal sobre Ciberseguridad y Linux"
 theme: jekyll-theme-minimal
+
+# Configuración del blog
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
