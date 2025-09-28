@@ -137,3 +137,8 @@ footer {
   padding: 12px 0;
   margin-top: 40px;
 }
+
+/* Ocultar nav en desktop ya que usaremos hamburguesa */
+#main-nav {
+  display: none;
+}
