@@ -4,7 +4,7 @@
 
 /* Full Hacker theme - UTZ Security */
 body {
-  background: linear-gradient(120deg, #00ff66 0%, #6a00ff 100%); /* Verde neon + violeta oscuro neon */
+  background: linear-gradient(to right, #00ff66 0%, #6a00ff 100%); /* Verde neon a la izquierda -> Violeta oscuro neon a la derecha */
   color: #98ff8a;
   font-family: "Fira Mono", monospace;
   line-height: 1.65;
@@ -12,6 +12,7 @@ body {
   padding: 0;
   min-height: 100vh;
 }
+
 
 /* Contenedor principal */
 #main {
