@@ -3,37 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }} - {{ site.title }}</title>
+  <title>{{ page.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header>
-    <div class="header-container">
-      <!-- Logo centrado -->
-      <div class="logo">
-        <h1>{{ site.title }}</h1>
-      </div>
 
-      <!-- Menú hamburguesa a la izquierda -->
-      <nav class="hamburger-menu">
-        <i class="fas fa-bars"></i>
-        <ul class="nav-links">
-          <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
-          <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-          <li><a href="{{ '/about/' | relative_url }}">Sobre mí</a></li>
-          <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<header id="header">
+  <div class="header-content">
+    <a href="{{ '/' | relative_url }}" class="logo">
+      <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="UTZ Security Logo">
+    </a>
+    <button id="menu-toggle" class="hamburger"><i class="fas fa-bars"></i></button>
+  </div>
 
-  <main id="main">
-    {{ content }}
-  </main>
+  <nav id="main-nav">
+    <ul>
+      <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
+      <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
+      <li><a href="{{ '/about/' | relative_url }}">Sobre mí</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
 
-  <footer>
-    <p>© 2025 UTZ Security - Cristian Huscht</p>
-  </footer>
+<main id="main">
+  {{ content }}
+</main>
+
+<footer>
+  <p>&copy; {{ site.time | date: "%Y" }} UTZ Security — Cristian Huscht</p>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+
+  menuToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
