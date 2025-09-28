@@ -1,7 +1,7 @@
 title: "UTZ Security"
-description: "Blog personal sobre Ciberseguridad y Linux"
-theme: jekyll-theme-minimal
-
+description: "Blog personal de Ciberseguridad — Cristian Huscht"
+author: "Cristian Huscht"
+theme: jekyll-theme-cayman
 # Configuración del blog
 plugins:
   - jekyll-feed
