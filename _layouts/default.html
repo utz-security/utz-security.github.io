@@ -3,34 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
+  <title>{{ page.title }} - {{ site.title }}</title>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="default">
-
+<body>
   <header>
     <div class="header-container">
-      <!-- Menú hamburguesa -->
-      <div id="hamburger" onclick="toggleNav()">
-        <i class="fas fa-bars fa-2x"></i>
-      </div>
-
-      <!-- Logo centrado -->
       <div class="logo">
-        <img src="{{ '/assets/images/logo.svg' | relative_url }}" alt="UTZ Security Logo">
+        <!-- SVG o texto del logo -->
+        <svg width="60" height="60" viewBox="0 0 512 512">
+          <circle cx="256" cy="256" r="256" fill="url(#gradient)" />
+          <defs>
+            <linearGradient id="gradient" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#00ff66"/>
+              <stop offset="100%" stop-color="#aa00ff"/>
+            </linearGradient>
+          </defs>
+        </svg>
       </div>
-    </div>
-
-    <!-- Menú oculto -->
-    <nav id="main-nav">
-      <ul>
-        <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
-        <li><a href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <li><a href="{{ '/about/' | relative_url }}">Sobre mí</a></li>
-        <li><a href="{{ '/contact/' | relative_url }}">Contacto</a></li>
+      <nav class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+      </nav>
+      <ul class="nav-links">
+        {% for page in site.pages %}
+          {% if page.title %}
+            <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+          {% endif %}
+        {% endfor %}
       </ul>
-    </nav>
+    </div>
   </header>
 
   <main id="main">
@@ -38,15 +40,7 @@
   </main>
 
   <footer>
-    <p>© 2025 UTZ Security — Cristian Huscht</p>
+    <p>© 2025 UTZ Security - Cristian Huscht</p>
   </footer>
-
-  <script>
-    function toggleNav() {
-      const nav = document.getElementById('main-nav');
-      nav.classList.toggle('open');
-    }
-  </script>
-
 </body>
 </html>
