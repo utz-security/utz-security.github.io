@@ -21,5 +21,4 @@ Este espacio es mi **bitácora de aprendizaje**: aquí comparto lo que voy estud
 
 ## 🌐 Conectemos
 - 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)  
-- 🐙 [GitHub](https://github.com/utz-security)  
-
+- 🐙 [GitHub](https://github.com/utz-security)
