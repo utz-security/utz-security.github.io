@@ -26,6 +26,19 @@ Este espacio es mi **bitácora de aprendizaje**: aquí comparto lo que voy estud
 
 ---
 
+---
+
+## 📝 Últimos artículos
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{ post.date | date: "%d %b %Y" }}</small>
+    </li>
+  {% endfor %}
+</ul>
+
+
 ## 🌐 Conectemos
 - 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)  
 - 🐙 [GitHub](https://github.com/utz-security)  
