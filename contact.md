@@ -4,12 +4,10 @@ title: Contacto
 permalink: /contact/
 ---
 
-# 🌐 Conectemos
+# 📩 Contacto
 
-Si querés contactarte conmigo, te dejo mis enlaces:
+Si querés conectarte conmigo, podés usar:  
 
 - 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)  
 - 🐙 [GitHub](https://github.com/utz-security)  
-- 📧 Email: *podés usar el que quieras compartir acá*  
-
-✍️ ¡Gracias por visitar mi blog!
+- 📧 Email: chuscht@gmail.com.ar
