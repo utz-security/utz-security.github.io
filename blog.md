@@ -1,20 +1,17 @@
 ---
 layout: page
-title: "Blog"
+title: Blog
 permalink: /blog/
 ---
 
-Acá van a estar mis posts 🚀
-
-
 # 📚 Blog de Ciberseguridad
 
-Bienvenido a la sección de blog 👋  
-Acá iré publicando artículos sobre:
+Aquí encontrarás todos mis artículos publicados hasta ahora:
 
-- Write-ups de laboratorios y CTFs 🕵️
-- Guías prácticas paso a paso 🔧
-- Apuntes de cursos 🎓
-- Consejos y buenas prácticas de seguridad 💡
-
-Pronto estaré subiendo mi primer artículo, ¡estate atento! 🚀
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{ post.date | date: "%d %b %Y" }}</small>
+    </li>
+  {% endfor %}
+</ul>
