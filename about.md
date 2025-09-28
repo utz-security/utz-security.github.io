@@ -1,23 +1,20 @@
 ---
 layout: page
-title: Sobre mí
-permalink: /about/
+title: "Sobre mí"
 ---
 
-# 👨‍💻 Sobre mí
-
-Soy **Cristian Hernan Huscht**, Analista en Ciberseguridad Jr / Administrador de Sistemas Jr en formación.  
+👨‍💻 Soy Cristian Hernan Huscht, Analista en Ciberseguridad Jr / Administrador de Sistemas Jr en formación.
 Apasionado por Linux, redes y seguridad informática.
 
-## 🎓 Formación
-- UTN: Administrador de Redes Linux con orientación en Ciberseguridad  
-- Google / Coursera: Seguridad de TI  
+🎓 Formación
+- UTN: Administrador de Redes Linux con orientación en Ciberseguridad
+- Google / Coursera: Seguridad de TI
 
-## 🐧 Intereses
-- Hardening en Linux  
-- Escaneo de vulnerabilidades  
-- Análisis de tráfico de red  
-- Pruebas de seguridad  
+🐧 Intereses
+- Hardening en Linux
+- Escaneo de vulnerabilidades
+- Análisis de tráfico de red
+- Pruebas de seguridad
 
-## 🔧 Herramientas favoritas
+🔧 Herramientas favoritas
 Linux · Python · Bash · Wireshark · OpenVAS · Nmap
