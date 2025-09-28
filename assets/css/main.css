@@ -1,6 +1,6 @@
-/* --- BODY Y FUENTE --- */
+/* --- BODY Y FUENTES --- */
 body {
-  background: linear-gradient(to bottom, #00ff66, #8a2be2);
+  background: linear-gradient(to right, #00cc44, #6a00cc); /* gradiente horizontal */
   color: #98ff8a;
   font-family: "Fira Mono", monospace;
   line-height: 1.65;
@@ -8,29 +8,73 @@ body {
   padding-top: 28px;
 }
 
-/* --- HEADER GRADIENTE UNIFICADO --- */
+/* --- HEADER --- */
 header {
-  background: linear-gradient(to bottom, #00ff66, #8a2be2);
+  background: linear-gradient(to right, #00cc44, #6a00cc); /* gradiente horizontal */
   padding: 20px;
   text-align: center;
   border-radius: 0 0 12px 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   position: relative;
-  z-index: 20; /* menú siempre arriba */
+  z-index: 20;
 }
 
-/* --- MENÚ RESPONSIVE --- */
-.menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: #00ff66; }
+/* --- MAIN CONTAINER --- */
+#main {
+  max-width: 860px;
+  margin: 20px auto;
+  padding: 20px;
+  background: linear-gradient(to right, rgba(0,204,68,0.2), rgba(106,0,204,0.2)); /* horizontal y semi-transparente */
+  border-radius: 8px;
+  border: 1px solid rgba(57,255,155,0.06);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10;
+}
+
+/* --- TITULOS CON GLOW --- */
+h1, h2, h3, h1.front-matter {
+  background: linear-gradient(to right, #00cc44, #6a00cc); /* horizontal */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0,204,68,0.8), 0 0 24px rgba(106,0,204,0.6);
+  animation: neon-glow 1.8s ease-in-out infinite alternate;
+  letter-spacing: 0.2px;
+}
+
+/* --- POSTS / BLOG CARDS --- */
+.post-list li, .blog-item {
+  border: 1px solid rgba(57,255,155,0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: linear-gradient(to right, rgba(0,204,68,0.2), rgba(106,0,204,0.2)); /* horizontal */
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.post-list li:hover, .blog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
+}
+
+/* --- ANIMACIÓN GLOW --- */
+@keyframes neon-glow {
+  from { text-shadow: 0 0 12px rgba(0,204,68,0.8), 0 0 24px rgba(106,0,204,0.6); }
+  to   { text-shadow: 0 0 20px rgba(0,204,68,1), 0 0 30px rgba(106,0,204,0.8); }
+}
+
+/* --- MENÚ --- */
+.menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: #00cc44; }
 nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
 nav li { margin: 0 1rem; }
-nav a { color: #00ff66; text-decoration: none; }
+nav a { color: #00cc44; text-decoration: none; }
 nav a:hover { color: #0ff; text-decoration: underline; }
 
-/* Menú desplegable vertical con z-index alto */
 nav.active {
-  position: relative; 
+  position: relative;
   z-index: 50;
 }
+
 nav.active ul {
   display: flex;
   flex-direction: column;
@@ -41,49 +85,6 @@ nav.active ul {
   width: 200px;
   padding: 1rem;
   border-radius: 8px;
-}
-
-/* --- MAIN CONTAINER --- */
-#main {
-  max-width: 860px;
-  margin: 20px auto;
-  padding: 20px;
-  background: linear-gradient(to bottom, rgba(0,255,102,0.2), rgba(138,43,226,0.2));
-  border-radius: 8px;
-  border: 1px solid rgba(57,255,155,0.06);
-  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
-  position: relative;
-  z-index: 10; /* menos que menú */
-}
-
-/* --- TITULOS CON GRADIENTE UNIFICADO Y GLOW --- */
-h1, h2, h3, h1.front-matter {
-  background: linear-gradient(to bottom, #00ff66, #8a2be2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6);
-  animation: neon-glow 1.8s ease-in-out infinite alternate;
-  letter-spacing: 0.2px;
-}
-
-@keyframes neon-glow {
-  from { text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6); }
-  to   { text-shadow: 0 0 20px rgba(0,255,102,1), 0 0 30px rgba(138,43,226,0.8); }
-}
-
-/* --- POSTS / BLOG CARDS --- */
-.post-list li, .blog-item {
-  border: 1px solid rgba(57,255,155,0.04);
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.45);
-  transition: transform 0.12s, box-shadow 0.12s;
-}
-
-.post-list li:hover, .blog-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
 /* --- TERMINAL-LIKE PRE / CODE --- */
@@ -101,10 +102,6 @@ code {
   border-radius: 4px;
   color: #bdf8b4;
 }
-
-/* --- LINKS NEON --- */
-a { color: #33ff66; text-decoration: none; }
-a:hover { text-decoration: underline; }
 
 /* --- FOOTER --- */
 footer {
