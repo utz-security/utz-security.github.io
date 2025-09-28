@@ -6,14 +6,28 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <meta name="description" content="{{ site.description }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
-  <!-- Font Awesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="{{ page.slug | default: page.title | slugify }}">
 
   <!-- HEADER -->
   <header>
-    <h1>{{ site.title }}</h1>
+    {% if page.url == "/" %}
+      <h1>{{ site.title }}</h1>
+      <p>Bienvenido a mi blog personal de ciberseguridad 👋</p>
+    {% elsif page.url == "/blog/" %}
+      <h1>Blog de Ciberseguridad</h1>
+      <p>Tus write-ups, guías y resúmenes de seguridad informática</p>
+    {% elsif page.url == "/about/" %}
+      <h1>Sobre mí</h1>
+      <p>Aprendiz de ciberseguridad y administrador de sistemas en formación</p>
+    {% elsif page.url == "/contact/" %}
+      <h1>Contacto</h1>
+      <p>Conectemos y compartamos conocimientos en seguridad informática</p>
+    {% else %}
+      <h1>{{ page.title }}</h1>
+    {% endif %}
+
     <nav>
       <a href="{{ '/' | relative_url }}"><i class="fa-solid fa-house"></i> Inicio</a>
       <a href="{{ '/blog/' | relative_url }}"><i class="fa-solid fa-book-open"></i> Blog</a>
