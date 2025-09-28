@@ -1,12 +1,8 @@
 ---
 ---
-
 @import "{{ site.theme }}";
 
-/* Full Hacker theme - UTZ Security
-   Dark terminal look, monospace, neon green glow
-*/
-
+/* Full Hacker theme - UTZ Security */
 body {
   background: radial-gradient(ellipse at top, #001217 0%, #000810 60%), #000;
   color: #98ff8a;
@@ -15,7 +11,6 @@ body {
   padding-top: 28px;
 }
 
-/* Page wrapper */
 #main {
   max-width: 860px;
   margin: 12px auto;
@@ -26,15 +21,14 @@ body {
   border-radius: 8px;
 }
 
-/* Headings with glow */
 h1, h2, h3 {
   color: #d6ffd1;
   text-shadow: 0 0 8px rgba(57,255,155,0.08);
   letter-spacing: 0.2px;
 }
+
 h1 { font-size: 2rem; }
 
-/* Nav style */
 nav a {
   color: #9effa6;
   padding: 6px 10px;
@@ -46,7 +40,6 @@ nav a:hover {
   box-shadow: 0 0 14px rgba(57,255,155,0.08);
 }
 
-/* Terminal-like accent bar for code */
 pre {
   background: #001215;
   border-left: 4px solid #33ff66;
@@ -56,7 +49,6 @@ pre {
   overflow: auto;
 }
 
-/* Inline code */
 code {
   background: rgba(57,255,155,0.03);
   padding: 3px 6px;
@@ -64,11 +56,9 @@ code {
   color: #bdf8b4;
 }
 
-/* Links: neon */
 a { color: #33ff66; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* Post cards */
 .post-list li {
   border: 1px solid rgba(57,255,155,0.04);
   padding: 12px;
@@ -81,15 +71,19 @@ a:hover { text-decoration: underline; }
   box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
-/* small screens */
 @media (max-width:720px) {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
 }
 
-
 header, footer {
-  background-color: #ffffff;
+  background-color: #000810;
   padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #33ff66;
+  color: #98ff8a;
+}
+
+header a {
+  color: #33ff66;
+  text-shadow: 0 0 4px #33ff66;
 }
