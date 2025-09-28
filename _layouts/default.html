@@ -1,28 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>{{ page.title }} | {{ site.title }}</title>
-  <meta name="description" content="{{ site.description }}">
-  <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
+  <meta name="description" content="{{ page.excerpt | default: site.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
-<body class="{% if page.url == '/' %}home{% elsif page.url == '/blog/' %}blog{% elsif page.url == '/about/' %}about{% elsif page.url == '/contact/' %}contact{% endif %}">
+{% assign page_class = page.slug | default: "" %}
+{% if page_class == "" and page.path %}
+  {% assign last = page.path | split:'/' | last %}
+  {% assign page_class = last | split:'.' | first %}
+{% endif %}
+{% if page_class == "" %}
+  {% assign page_class = "home" %}
+{% endif %}
+<body class="{{ page_class | slugify }}">
 
   <!-- HEADER -->
   <header>
-    {% if page.url == "/" %}
+    {% if page.url == "/" or page_class == "index" or page_class == "home" %}
       <h1>{{ site.title }}</h1>
       <p>Bienvenido a mi blog personal de ciberseguridad 👋</p>
-    {% elsif page.url == "/blog/" %}
+    {% elsif page.url == "/blog/" or page_class == "blog" %}
       <h1>Blog de Ciberseguridad</h1>
       <p>Tus write-ups, guías y resúmenes de seguridad informática</p>
-    {% elsif page.url == "/about/" %}
+    {% elsif page.url == "/about/" or page_class == "about" %}
       <h1>Sobre mí</h1>
       <p>Aprendiz de ciberseguridad y administrador de sistemas en formación</p>
-    {% elsif page.url == "/contact/" %}
+    {% elsif page.url == "/contact/" or page_class == "contact" %}
       <h1>Contacto</h1>
       <p>Conectemos y compartamos conocimientos en seguridad informática</p>
     {% else %}
@@ -37,12 +44,10 @@
     </nav>
   </header>
 
-  <!-- MAIN CONTENT -->
   <main id="main">
     {{ content }}
   </main>
 
-  <!-- FOOTER -->
   <footer>
     &copy; {{ site.time | date: "%Y" }} {{ site.author }} — UTZ Security
   </footer>
