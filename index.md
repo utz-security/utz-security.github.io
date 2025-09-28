@@ -1,6 +1,7 @@
 ---
-layout: default
-title: UTZ Security - Blog de Ciberseguridad
+layout: page
+title: Inicio
+permalink: /
 ---
 
 # 🔐 UTZ Security
@@ -18,29 +19,7 @@ Este espacio es mi **bitácora de aprendizaje**: aquí comparto lo que voy estud
 
 ---
 
-## 📚 ¿Qué encontrarás en este blog?
-- 🕵️ Write-ups de laboratorios y CTFs  
-- 🔧 Guías prácticas paso a paso sobre herramientas de seguridad  
-- 🎓 Apuntes y resúmenes de mis cursos  
-- 💡 Consejos y buenas prácticas de seguridad para el día a día  
-
----
-
----
-
-## 📝 Últimos artículos
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{ post.date | date: "%d %b %Y" }}</small>
-    </li>
-  {% endfor %}
-</ul>
-
-
 ## 🌐 Conectemos
 - 💼 [LinkedIn](https://www.linkedin.com/in/cristian-huscht)  
 - 🐙 [GitHub](https://github.com/utz-security)  
 
-✍️ *Este es el inicio del proyecto **UTZ Security**. Pronto publicaré mis primeros artículos, ¡gracias por visitar!*  
