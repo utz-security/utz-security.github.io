@@ -145,4 +145,8 @@ footer .footer-links a:hover {
   text-shadow: 0 0 4px #33ff66;
   transform: translateY(-2px);
 }
+.post-header {
+  padding: 12px 20px; /* antes podía ser 28px o más, ahora más compacto */
+  margin-bottom: 16px; /* separa del contenido siguiente */
+}
 
