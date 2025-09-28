@@ -1,14 +1,14 @@
-/* --- BODY Y FUENTES --- */
+/* --- BODY Y FUENTE --- */
 body {
-  background: linear-gradient(to right, #00ff66, #8a2be2);
+  background: linear-gradient(to bottom, #00ff66, #8a2be2);
   color: #98ff8a;
-  font-family: "Fira Mono", "Source Code Pro", Menlo, Monaco, monospace;
+  font-family: "Fira Mono", monospace;
   line-height: 1.65;
   margin: 0;
   padding-top: 28px;
 }
 
-/* --- HEADER GRADIENTE VERTICAL --- */
+/* --- HEADER GRADIENTE UNIFICADO --- */
 header {
   background: linear-gradient(to bottom, #00ff66, #8a2be2);
   padding: 20px;
@@ -16,50 +16,21 @@ header {
   border-radius: 0 0 12px 12px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.5);
   position: relative;
-  z-index: 5;
-}
-
-#header-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-#logo svg {
-  height: 50px;
+  z-index: 20; /* menú siempre arriba */
 }
 
 /* --- MENÚ RESPONSIVE --- */
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 1.8rem;
-  color: #00ff66;
-}
+.menu-toggle { display: none; cursor: pointer; font-size: 1.8rem; color: #00ff66; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+nav li { margin: 0 1rem; }
+nav a { color: #00ff66; text-decoration: none; }
+nav a:hover { color: #0ff; text-decoration: underline; }
 
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
+/* Menú desplegable vertical con z-index alto */
+nav.active {
+  position: relative; 
+  z-index: 50;
 }
-
-nav li {
-  margin: 0 1rem;
-}
-
-nav a {
-  color: #00ff66;
-  text-decoration: none;
-}
-
-nav a:hover {
-  text-decoration: underline;
-  color: #0ff;
-}
-
 nav.active ul {
   display: flex;
   flex-direction: column;
@@ -70,21 +41,6 @@ nav.active ul {
   width: 200px;
   padding: 1rem;
   border-radius: 8px;
-  z-index: 10;
-}
-
-nav.active li {
-  margin: 0.5rem 0;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle { display: block; }
-  nav ul { display: none; }
-}
-
-@media (min-width: 768px) {
-  nav ul { display: flex; flex-direction: row; }
-  .menu-toggle { display: none; }
 }
 
 /* --- MAIN CONTAINER --- */
@@ -96,6 +52,23 @@ nav.active li {
   border-radius: 8px;
   border: 1px solid rgba(57,255,155,0.06);
   box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+  position: relative;
+  z-index: 10; /* menos que menú */
+}
+
+/* --- TITULOS CON GRADIENTE UNIFICADO Y GLOW --- */
+h1, h2, h3, h1.front-matter {
+  background: linear-gradient(to bottom, #00ff66, #8a2be2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6);
+  animation: neon-glow 1.8s ease-in-out infinite alternate;
+  letter-spacing: 0.2px;
+}
+
+@keyframes neon-glow {
+  from { text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6); }
+  to   { text-shadow: 0 0 20px rgba(0,255,102,1), 0 0 30px rgba(138,43,226,0.8); }
 }
 
 /* --- POSTS / BLOG CARDS --- */
@@ -113,27 +86,6 @@ nav.active li {
   box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
-/* --- TITULOS CON GLOW NEON --- */
-h1, h2, h3, h1.front-matter {
-  background: linear-gradient(to bottom, #00ff66, #8a2be2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6);
-  animation: neon-glow 1.8s ease-in-out infinite alternate;
-  letter-spacing: 0.2px;
-}
-
-@keyframes neon-glow {
-  from {
-    text-shadow: 0 0 12px rgba(0,255,102,0.8), 0 0 24px rgba(138,43,226,0.6);
-  }
-  to {
-    text-shadow: 0 0 20px rgba(0,255,102,1), 0 0 30px rgba(138,43,226,0.8);
-  }
-}
-
-h1 { font-size: 2rem; }
-
 /* --- TERMINAL-LIKE PRE / CODE --- */
 pre {
   background: #001215;
@@ -143,7 +95,6 @@ pre {
   border-radius: 6px;
   overflow: auto;
 }
-
 code {
   background: rgba(57,255,155,0.03);
   padding: 3px 6px;
@@ -168,4 +119,7 @@ footer {
 @media (max-width:720px) {
   #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
+  nav.active ul { width: 100%; }
+  nav.active li { text-align: center; }
+  nav.active { top: 70px; }
 }
