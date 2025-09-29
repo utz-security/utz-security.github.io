@@ -3,134 +3,105 @@
 
 @import "{{ site.theme }}";
 
-/* ===========================
-   UTZ Security Neon Theme
-   =========================== */
+/* Full Hacker theme - UTZ Security
+   Horizontal gradient: verde neon (izq) -> violeta oscuro neon (der)
+*/
 
-/* Fondo general con gradiente horizontal */
 body {
-  background: linear-gradient(to right, #009944 0%, #4b0082 100%);
+  background: linear-gradient(to right, #00ff66 0%, #8a2be2 100%);
   color: #98ff8a;
   font-family: "Fira Mono", "Source Code Pro", Menlo, Monaco, monospace;
   line-height: 1.65;
-  margin: 0;
-  padding: 0;
+  padding-top: 28px;
 }
 
-/* --- Wrapper de contenido --- */
+/* Page wrapper */
 #main {
   max-width: 860px;
-  margin: 80px auto 20px auto;
+  margin: 20px auto;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   border-radius: 8px;
-  border: 1px solid rgba(57, 255, 155, 0.06);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(57,255,155,0.06);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.7);
 }
 
-/* --- Header --- */
-header {
-  background: linear-gradient(to right, #009944, #4b0082);
-  padding: 12px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  z-index: 100;
+/* Post cards */
+.post-list li, .blog-item {
+  border: 1px solid rgba(57,255,155,0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.45);
+  transition: transform 0.12s, box-shadow 0.12s;
 }
 
-/* Logo */
-#logo svg {
-  height: 40px;
-  width: auto;
+.post-list li:hover, .blog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.65);
 }
 
-/* Botón hamburguesa */
-#menu-toggle {
-  cursor: pointer;
-  font-size: 1.1rem; /* más chico */
-  color: #00cc44;
-  margin-right: 15px;
-  display: flex;
-  align-items: center;
+/* Headings with glow */
+h1, h2, h3 {
+  color: #d6ffd1;
+  text-shadow: 0 0 8px rgba(57,255,155,0.08);
+  letter-spacing: 0.2px;
 }
+h1 { font-size: 2rem; }
 
-/* --- Menú desplegable --- */
-nav {
+/* Nav styles */
+.menu-toggle {
   display: none;
+  cursor: pointer;
+  font-size: 1.8rem;
+  color: #00ff66;
 }
 
-nav.active {
-  display: block;
-  position: absolute;
-  top: 100%; /* justo debajo del header */
-  left: 0;
-  width: 200px;
-  background: rgba(0, 0, 0, 0.9);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-nav.active ul {
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  color: #00ff66;
+  text-decoration: none;
+}
+
+/* Menú desplegable vertical */
+nav.active ul {
+  display: flex;
   flex-direction: column;
+  background: rgba(0,0,0,0.8);
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 200px;
+  padding: 1rem;
+  border-radius: 8px;
+  z-index: 10;
 }
 
 nav.active li {
   margin: 0.5rem 0;
 }
 
-/* --- Títulos con borde neon --- */
-h1, h2, h3 {
-  color: #c8ffc8; /* verde claro */
-  text-shadow: 
-    -1px -1px 0 #4b0082,
-     1px -1px 0 #4b0082,
-    -1px  1px 0 #4b0082,
-     1px  1px 0 #4b0082; /* borde violeta */
-  letter-spacing: 0.5px;
+/* Mostrar toggle en pantalla chica */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav ul {
+    display: none;
+  }
 }
 
-h1 { font-size: 2rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.3rem; }
-
-/* --- Links con estilo uniforme --- */
-a {
-  color: #98ff8a; /* verde claro */
-  text-shadow: 
-    -1px -1px 0 #4b0082,
-     1px -1px 0 #4b0082,
-    -1px  1px 0 #4b0082,
-     1px  1px 0 #4b0082;
-  text-decoration: none;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
-}
-
-a:hover {
-  color: #0ff;
-  text-shadow: 0 0 6px #0ff, 0 0 3px #6a00cc;
-}
-
-/* --- Cards (blog/post list) --- */
-.post-list li, .blog-item {
-  border: 1px solid rgba(57, 255, 155, 0.04);
-  padding: 12px;
-  margin: 12px 0;
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.45);
-  transition: transform 0.12s, box-shadow 0.12s;
-}
-
-.post-list li:hover, .blog-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
-}
-
-/* --- Code blocks estilo terminal --- */
+/* Terminal-like accent bar for code */
 pre {
   background: #001215;
   border-left: 4px solid #33ff66;
@@ -140,43 +111,20 @@ pre {
   overflow: auto;
 }
 
+/* Inline code */
 code {
-  background: rgba(57, 255, 155, 0.03);
+  background: rgba(57,255,155,0.03);
   padding: 3px 6px;
   border-radius: 4px;
   color: #bdf8b4;
 }
 
-/* --- Footer --- */
-footer {
-  text-align: center;
-  margin: 20px 0;
-  font-size: 0.9rem;
-  color: #98ff8a;
-}
+/* Links neon */
+a { color: #33ff66; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  header {
-    flex-direction: row;
-    justify-content: flex-start;
-  }
-
-  #logo svg {
-    height: 32px;
-  }
-
-  #menu-toggle {
-    font-size: 1rem;
-    margin-right: 10px;
-  }
-
-  #main {
-    margin: 60px 10px 20px 10px;
-    padding: 15px;
-  }
-
+/* small screens */
+@media (max-width:720px) {
+  #main { padding: 18px; }
   h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.3rem; }
-  h3 { font-size: 1.1rem; }
 }
