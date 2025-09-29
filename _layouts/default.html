@@ -9,22 +9,22 @@
 </head>
 <body>
   <header>
-    <div id="header-content">
-      
-      <!-- Botón hamburguesa a la izquierda abajo -->
-      <div id="menu-toggle">
-        <i class="fas fa-bars"></i>
-      </div>
-
-      <!-- Logo SVG estilo terminal -->
-      <div id="logo">
-        <img src="{{ '/assets/svg/logo-terminal.svg' | relative_url }}" 
-             alt="UTZ Security Logo" 
-             width="70" height="70">
-      </div>
+    <!-- Botón hamburguesa -->
+    <div id="menu-toggle">
+      <i class="fas fa-bars"></i>
     </div>
 
-    <!-- Menú hamburguesa oculto por defecto -->
+    <!-- Logo centrado -->
+    <div id="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 50" width="180" height="50">
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+              fill="#00ffcc" font-family="Fira Mono" font-size="28">
+          UTZ Security
+        </text>
+      </svg>
+    </div>
+
+    <!-- Menú desplegable -->
     <nav id="main-nav">
       <ul>
         <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
@@ -35,7 +35,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     {{ content }}
   </main>
 
