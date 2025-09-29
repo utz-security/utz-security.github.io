@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    <!-- Navegación oculta por defecto -->
+    <!-- Menú hamburguesa oculto por defecto -->
     <nav id="main-nav">
       <ul>
         <li><a href="{{ '/' | relative_url }}">Inicio</a></li>
@@ -35,7 +35,7 @@
     </nav>
   </header>
 
-  <main>
+  <main id="main">
     {{ content }}
   </main>
 
@@ -44,7 +44,7 @@
   </footer>
 
   <script>
-    // Función menú hamburguesa
+    // Toggle menú hamburguesa
     const toggle = document.getElementById('menu-toggle');
     const nav = document.getElementById('main-nav');
 
