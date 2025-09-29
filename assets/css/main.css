@@ -15,45 +15,45 @@ body {
 /* === HEADER === */
 header {
   position: relative;
-  z-index: 1000;
   display: flex;
-  align-items: flex-end; /* menú abajo */
-  justify-content: flex-start;
-  padding: 12px 20px;
+  justify-content: center; /* logo centrado */
+  align-items: center;
   background: linear-gradient(to right, #009944, #4b0082);
-  min-height: 60px;
+  min-height: 80px;
+  padding: 0 20px;
+  z-index: 1000;
 }
 
 /* Logo SVG */
 #logo svg {
-  height: 40px;
+  height: 50px;
   width: auto;
-  margin-right: 10px;
   z-index: 1000;
 }
 
 /* Botón hamburguesa */
 #menu-toggle {
+  position: absolute;
+  bottom: 12px; /* abajo */
+  left: 12px;   /* a la izquierda */
   cursor: pointer;
-  font-size: 0.9rem; /* tamaño más pequeño que el logo */
+  font-size: 0.9rem;
   color: #00ff66;
-  margin-right: 15px;
-  align-self: flex-end;
   z-index: 1010;
 }
 
 /* Menú desplegable */
 #main-nav {
   position: absolute;
-  top: 100%; /* justo debajo del botón */
-  left: 0;
+  top: calc(100% + 4px); /* justo debajo del botón */
+  left: 12px;
   display: flex;
   flex-direction: column;
   background: rgba(0,0,0,0.85);
   padding: 12px;
   border-radius: 0 0 10px 0;
-  z-index: 1020; /* encima de todos los contenedores */
-  visibility: hidden; /* oculto hasta hacer click */
+  z-index: 1020;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -97,7 +97,7 @@ header {
   border: 1px solid rgba(57,255,155,0.06);
   box-shadow: 0 8px 40px rgba(0,0,0,0.7);
   position: relative;
-  z-index: 1; /* debajo del header y menú */
+  z-index: 1;
 }
 
 /* Post cards */
