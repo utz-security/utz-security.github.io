@@ -1,121 +1,182 @@
-/* === RESET GENERAL === */
-* {
+---
+---
+
+@import "{{ site.theme }}";
+
+/* ===========================
+   UTZ Security Neon Theme
+   =========================== */
+
+/* Fondo general con gradiente horizontal */
+body {
+  background: linear-gradient(to right, #009944 0%, #4b0082 100%);
+  color: #98ff8a;
+  font-family: "Fira Mono", "Source Code Pro", Menlo, Monaco, monospace;
+  line-height: 1.65;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
-  color: #e0e0e0;
-  background: linear-gradient(to right, #0f3d0f, #1a001a);
-  line-height: 1.6;
+/* --- Wrapper de contenido --- */
+#main {
+  max-width: 860px;
+  margin: 80px auto 20px auto;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(57, 255, 155, 0.06);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
 }
 
-/* === HEADER === */
+/* --- Header --- */
 header {
   background: linear-gradient(to right, #009944, #4b0082);
   padding: 12px 20px;
   display: flex;
-  align-items: flex-end; /* ⬅️ contenido abajo */
+  align-items: center;
   justify-content: flex-start;
   position: relative;
   z-index: 100;
-  min-height: 60px; /* asegura altura para alinear abajo */
 }
 
-/* LOGO */
-header svg {
+/* Logo */
+#logo svg {
   height: 40px;
   width: auto;
-  margin-right: 10px;
 }
 
-/* === BOTÓN MENÚ HAMBURGUESA === */
+/* Botón hamburguesa */
 #menu-toggle {
   cursor: pointer;
-  font-size: 0.9rem;  /* ⬅️ más chico */
-  color: #00ff66;
+  font-size: 1.1rem; /* más chico */
+  color: #00cc44;
   margin-right: 15px;
-  align-self: flex-end; /* abajo a la izquierda */
+  display: flex;
+  align-items: center;
 }
 
-/* === MENÚ DESPLEGABLE === */
-#menu {
+/* --- Menú desplegable --- */
+nav {
   display: none;
-  flex-direction: column;
+}
+
+nav.active {
+  display: block;
   position: absolute;
   top: 100%; /* justo debajo del header */
   left: 0;
-  background: rgba(15, 15, 15, 0.95);
-  padding: 12px;
-  border-radius: 0 0 10px 0;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  width: 200px;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-#menu a {
-  text-decoration: none;
-  color: #e0e0e0;
-  margin: 8px 0;
-  font-weight: 500;
-  text-shadow: 0 0 3px #4b0082, 0 0 3px #00ff66;
-}
-
-#menu a:hover {
-  color: #00ff66;
-  text-shadow: 0 0 5px #4b0082, 0 0 5px #00ff66;
-}
-
-/* Activa el menú cuando tiene la clase "active" */
-#menu.active {
+nav.active ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
+  flex-direction: column;
 }
 
-/* === TEXTOS Y TITULOS === */
-h1, h2, h3, h4, h5, h6 {
-  color: #f0f0f0;
+nav.active li {
+  margin: 0.5rem 0;
+}
+
+/* --- Títulos con borde neon --- */
+h1, h2, h3 {
+  color: #c8ffc8; /* verde claro */
   text-shadow: 
     -1px -1px 0 #4b0082,
      1px -1px 0 #4b0082,
-    -1px  1px 0 #00ff66,
-     1px  1px 0 #00ff66;
-  margin-bottom: 15px;
+    -1px  1px 0 #4b0082,
+     1px  1px 0 #4b0082; /* borde violeta */
+  letter-spacing: 0.5px;
 }
 
-p, li, a, span {
-  color: #e0e0e0;
+h1 { font-size: 2rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+
+/* --- Links con estilo uniforme --- */
+a {
+  color: #98ff8a; /* verde claro */
   text-shadow: 
     -1px -1px 0 #4b0082,
      1px -1px 0 #4b0082,
-    -1px  1px 0 #00ff66,
-     1px  1px 0 #00ff66;
+    -1px  1px 0 #4b0082,
+     1px  1px 0 #4b0082;
+  text-decoration: none;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
 }
 
-/* === CARDS Y CONTENEDORES === */
-.container, .card {
-  background: linear-gradient(to right, #009944, #4b0082);
-  border-radius: 12px;
-  padding: 20px;
-  margin: 15px auto;
-  max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+a:hover {
+  color: #0ff;
+  text-shadow: 0 0 6px #0ff, 0 0 3px #6a00cc;
 }
 
-/* === RESPONSIVE === */
+/* --- Cards (blog/post list) --- */
+.post-list li, .blog-item {
+  border: 1px solid rgba(57, 255, 155, 0.04);
+  padding: 12px;
+  margin: 12px 0;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.45);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.post-list li:hover, .blog-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.65);
+}
+
+/* --- Code blocks estilo terminal --- */
+pre {
+  background: #001215;
+  border-left: 4px solid #33ff66;
+  color: #ccffd6;
+  padding: 14px;
+  border-radius: 6px;
+  overflow: auto;
+}
+
+code {
+  background: rgba(57, 255, 155, 0.03);
+  padding: 3px 6px;
+  border-radius: 4px;
+  color: #bdf8b4;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 0.9rem;
+  color: #98ff8a;
+}
+
+/* --- Responsive --- */
 @media (max-width: 768px) {
   header {
-    flex-wrap: wrap;
-    min-height: 50px;
+    flex-direction: row;
+    justify-content: flex-start;
   }
 
-  #menu {
-    width: 100%;
-    left: 0;
-    border-radius: 0;
+  #logo svg {
+    height: 32px;
   }
 
-  .container, .card {
-    margin: 10px;
+  #menu-toggle {
+    font-size: 1rem;
+    margin-right: 10px;
+  }
+
+  #main {
+    margin: 60px 10px 20px 10px;
     padding: 15px;
   }
+
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
 }
