@@ -58,9 +58,11 @@ Wazuh (Detección): El agente reportó los intentos fallidos. El Manager correla
 
 Fail2ban (Contención): Aisló inmediatamente la IP origen a nivel de red, bloqueando la conexión.
 
-![Alerta de fuerza bruta detectada por Wazuh](/assets/images/severities.png)
-
-![IP del atacante bloqueada por Fail2ban](/assets/images/jail.png)
+<div style="text-align: center; margin: 20px 0;">
+  <img src="/assets/images/severities.png" alt="Alerta de fuerza bruta detectada por Wazuh" style="max-width: 100%; height: auto; border: 1px solid #333; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+  
+  <br><br> <img src="/assets/images/jail.png" alt="IP del atacante bloqueada por Fail2ban" style="max-width: 100%; height: auto; border: 1px solid #333; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+</div>
 
 Conclusión
 Este laboratorio demuestra la importancia de no depender de una sola capa de seguridad. El hardening evita el acceso no autorizado, Fail2ban automatiza la respuesta ante atacantes insistentes, y Wazuh nos da la visibilidad necesaria (como operadores de SOC) para saber exactamente qué está sucediendo en nuestra infraestructura.
