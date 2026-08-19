@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Analytics (Acá pegaremos la etiqueta en el Paso 2) -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V42SCLSENJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V42SCLSENJ');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buffet Ekoparty - Menú Digital</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #0d1117;
+            color: #c9d1d9;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 450px;
+            width: 100%;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+        .loading {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border-left-color: #58a6ff;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .awareness-card {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .badge-warning {
+            background: rgba(248, 81, 73, 0.15);
+            border: 1px solid #f85149;
+            color: #ff7b72;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        h2 {
+            color: #f0f6fc;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #8b949e;
+            margin-bottom: 15px;
+        }
+        .highlight-box {
+            background: #21262d;
+            border-left: 4px solid #58a6ff;
+            padding: 12px 15px;
+            margin: 15px 0;
+            border-radius: 0 6px 6px 0;
+        }
+        .highlight-box p {
+            color: #c9d1d9;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px 0;
+            background-color: #238636;
+            color: #ffffff;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            margin-top: 20px;
+            transition: background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: #2ea043;
+        }
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #484f58;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Pantalla simulada de carga -->
+    <div class="loading" id="loadingState">
+        <div class="spinner"></div>
+        <p style="color: #c9d1d9;">Cargando menú del Buffet...</p>
+    </div>
+
+    <!-- Mensaje de concientización / Phishing físico -->
+    <div class="awareness-card" id="awarenessState">
+        <span class="badge-warning">⚠️ Ejercicio de Concientización</span>
+        <h2>¡Buscabas el menú, pero entraste a una prueba de seguridad!</h2>
+        
+        <p>Escanear un código QR o acercar un NFC en un lugar público sin verificar la fuente es uno de los vectores más comunes de <strong>Ingeniería Social (QRishing / NFC Spoofing)</strong>.</p>
+        
+        <div class="highlight-box">
+            <p><strong>¿Qué podría haber pasado en un ataque real?</strong></p>
+            <p>Se podría haber redirigido tu navegador a un sitio de <em>Phishing</em> para robarte credenciales o descargar un archivo malicioso en tu teléfono.</p>
+        </div>
+
+        <p>¡Tranquilo/a! Esto es solo una demostración pacífica para generar conversación sobre ciberseguridad en la Ekoparty.</p>
+        
+        <p style="color: #f0f6fc; font-weight: 500;">Soy <strong>Cristian Huscht</strong> de <strong>UTZ Security</strong>. 👋</p>
+
+        <a href="https://utz-security.github.io/" class="btn">Conocer mi blog y proyectos</a>
+    </div>
+
+    <footer>
+        UTZ Security — Awareness & Red Team Lab
+    </footer>
+</div>
+
+<script>
+    // Simula una breve carga para generar la expectativa del "menú"
+    setTimeout(() => {
+        document.getElementById('loadingState').style.display = 'none';
+        document.getElementById('awarenessState').style.display = 'block';
+    }, 1200);
+</script>
+
+</body>
+</html>
